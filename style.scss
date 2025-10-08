@@ -510,6 +510,8 @@ footer{
     font-size: 0.9rem;
 }
 
+
+/* practice Section */
 .practice {
   padding: 3em 1.5em;
   background-color: #ffffff;
@@ -528,12 +530,12 @@ footer{
     overflow: hidden;
     position: relative;
     width: 100%;
-  }
 
-  .marquee-track {
-    display: flex;
-    gap: 1.5em;
-    animation: scrollLeft 10s linear infinite;
+    .marquee-track {
+      display: flex;
+      gap: 1em;
+      will-change: transform; /* optimize animation */
+    }
   }
 
   .practice-card {
@@ -554,37 +556,16 @@ footer{
     }
   }
 
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Optional: pause on hover */
-  .marquee-track:hover {
-    animation-play-state: paused;
-  }
-}
-
-
-@media (min-width: 768px) {
-  .practice {
-    padding: 4em 3em;
+  @media (min-width: 768px) {
+    padding: 6em 3em;
 
     h2 {
       font-size: 2.5rem;
     }
 
-    .marquee-track {
-      gap: 2em;
-      animation-duration: 15s; /* slower on larger screens */
-    }
     .practice-card {
       padding: 1.5em 3em;
       font-size: 1.1rem;
-  }
     }
   }
+}

@@ -53,7 +53,7 @@ window.addEventListener('resize', updateCarousel);
 updateCarousel();
 
 
-
+//go to top button
 const goTopBtn = document.getElementById("goTopBtn");
 
 // Show button when scrolled down 200px
@@ -73,5 +73,44 @@ goTopBtn.addEventListener("click", () => {
   });
 });
 
+//practice marquee
+// === Practice Areas Marquee ===
+(() => {
+  const track = document.querySelector('.marquee-track');
+  if (!track) return;
 
+  let speed = 50; // pixels per second (adjustable)
+  let position = 0;
 
+  // Track width of first set (before duplication)
+  const marqueeWidth = track.scrollWidth / 2;
+  let lastTime = null;
+
+  function animate(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const delta = timestamp - lastTime;
+    lastTime = timestamp;
+
+    position -= (speed * delta) / 1000;
+
+    if (Math.abs(position) >= marqueeWidth) {
+      position = 0; // seamless reset
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+
+  // Optional: pause on hover for desktop
+  track.addEventListener('mouseenter', () => speed = 0);
+  track.addEventListener('mouseleave', () => speed = 50);
+
+  // Optional: faster scroll on mobile
+  const handleResize = () => {
+    speed = window.innerWidth < 768 ? 80 : 50;
+  };
+  window.addEventListener('resize', handleResize);
+  handleResize();
+})();
