@@ -52,3 +52,26 @@ let autoSlide = setInterval(() => {
 window.addEventListener('resize', updateCarousel);
 updateCarousel();
 
+
+
+const goTopBtn = document.getElementById("goTopBtn");
+
+// Show button when scrolled down 200px
+window.addEventListener("scroll", () => {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    goTopBtn.style.display = "block";
+  } else {
+    goTopBtn.style.display = "none";
+  }
+});
+
+// Scroll smoothly to top
+goTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+
+

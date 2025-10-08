@@ -15,6 +15,7 @@ html, body {
   font-family: var(--body-font);
   color: #0B1D39;
   background-color: #FFFFFF;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,8 +38,9 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1em 1.5em;
   background-color: #FFFFFF;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: relative; /* for absolute nav */
+  position: fixed; /* for absolute nav */
   z-index: 100;
+  width: 100%;
 }
 .header .logo {
   display: flex;
@@ -160,6 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   gap: 3em;
   width: 100%;
+  padding-top: 4em;
 }
 .hero .bottom-mob {
   position: relative;
@@ -250,6 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   .hero {
     flex-direction: row;
     padding: 2em;
+    padding-top: 8em;
     gap: 2em;
   }
   .hero .bottom-mob {
@@ -328,12 +332,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) {
   .about {
-    padding: 4em 4em;
+    padding: 6em 4em;
     flex-direction: row;
     gap: 0em;
     width: 100%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
   .about .top {
     display: flex;
@@ -351,6 +355,182 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.5rem;
   }
   .about .bottom p {
+    font-size: 1.1rem;
+  }
+}
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0B1D39; /* gold accent */
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* hidden by default */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+#goTopBtn:hover {
+  background-color: #B38F57; /* darker gold */
+}
+
+.contact {
+  padding: 2em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: #0A162F;
+}
+.contact h1 {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.contact .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  color: #FFFFFF;
+}
+.contact .contact-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.contact .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #FFFFFF;
+  gap: 1em;
+  padding: 2em;
+  border-radius: 10px;
+}
+.contact .card img {
+  width: 50px;
+}
+.contact .card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.contact .card h2 span {
+  color: #C5A572;
+}
+.contact .card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555555;
+}
+
+@media (min-width: 768px) {
+  .contact {
+    padding: 4em 4em;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .contact .contact-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 4em;
+    color: #FFFFFF;
+  }
+  .contact .contact-info p {
+    font-size: 1.1rem;
+  }
+  .contact .card {
+    padding: 2em 4em;
+  }
+  .contact .card h2 {
+    font-size: 2.5rem;
+  }
+  .contact .card p {
+    font-size: 1.1rem;
+  }
+}
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #0B1D39;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+}
+
+.practice {
+  padding: 3em 1.5em;
+  background-color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  /* Optional: pause on hover */
+}
+.practice h2 {
+  font-family: var(--heading-font);
+  color: #0B1D39;
+  font-size: 1.8rem;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+}
+.practice .marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.practice .marquee-track {
+  display: flex;
+  gap: 1.5em;
+  animation: scrollLeft 10s linear infinite;
+}
+.practice .practice-card {
+  background-color: #f9f9f9;
+  border: 2px solid #C5A572;
+  border-radius: 10px;
+  padding: 1em 2em;
+  color: #0B1D39;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.practice .practice-card:hover {
+  background-color: #C5A572;
+  color: #fff;
+  transform: scale(1.05);
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.practice .marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (min-width: 768px) {
+  .practice {
+    padding: 4em 3em;
+  }
+  .practice h2 {
+    font-size: 2.5rem;
+  }
+  .practice .marquee-track {
+    gap: 2em;
+    animation-duration: 15s; /* slower on larger screens */
+  }
+  .practice .practice-card {
+    padding: 1.5em 3em;
     font-size: 1.1rem;
   }
 }/*# sourceMappingURL=style.css.map */
