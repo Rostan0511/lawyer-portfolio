@@ -1,6 +1,16 @@
 :root {
   --heading-font: "Playfair Display", serif;
   --body-font: "Open Sans", sans-serif;
+  /* light theme colors */
+  --color-bg: #FFFFFF;
+  --color-text: #0B1D39;
+  --color-muted: #555555;
+  --color-accent: #C5A572;
+  --color-accent-dark: #B38F57;
+  --color-elev: #FFFFFF;
+  --color-border: #E0E0E0;
+  --color-surface: #f9f9f9;
+  --color-hero-cta: #0B1D39;
 }
 
 * {
@@ -13,21 +23,21 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: var(--body-font);
-  color: #0B1D39;
-  background-color: #FFFFFF;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   font-weight: 600;
-  color: #0B1D39;
+  color: var(--color-text);
 }
 
 .line {
   width: 100%;
   height: 1px;
-  background-color: #E0E0E0;
+  background-color: var(--color-border);
 }
 
 /* Header */
@@ -36,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 1em 1.5em;
-  background-color: #FFFFFF;
+  background-color: var(--color-elev);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   position: fixed; /* for absolute nav */
   z-index: 100;
@@ -71,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 .header .logo .logo-text p {
   font-size: 1rem;
   font-weight: 600;
-  color: #0B1D39;
+  color: var(--color-text);
 }
 .header .hamburger {
   display: flex;
@@ -85,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: #0B1D39;
+  background-color: var(--color-text);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -104,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
   right: -50%; /* hidden by default */
   width: 50%;
   height: 100%;
-  background-color: #FFFFFF;
+  background-color: var(--color-elev);
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
@@ -122,12 +132,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header nav .nav-links li a {
   text-decoration: none;
-  color: #0B1D39;
+  color: var(--color-text);
   font-weight: 600;
   font-size: 1rem;
 }
 .header nav .nav-links li a:hover {
-  color: #C5A572;
+  color: var(--color-accent);
 }
 .header nav.nav-active {
   right: 0; /* slide in */
@@ -154,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     gap: 2em;
     padding: initial;
+    align-items: center;
   }
 }
 /* hero */
@@ -214,12 +225,12 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 .hero .top h1 span {
-  color: #C5A572;
+  color: var(--color-accent);
 }
 .hero .top p {
   font-size: 1rem;
   line-height: 1.5;
-  color: #555555;
+  color: var(--color-muted);
 }
 .hero .top .hero-buttons {
   display: flex;
@@ -227,7 +238,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero .top .hero-buttons a {
   padding: 1em;
-  background-color: #C5A572;
+  background-color: var(--color-accent);
   border-radius: 16px;
   text-decoration: none;
   color: #fff;
@@ -237,10 +248,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9em;
 }
 .hero .top .hero-buttons .btn-primary:hover {
-  background-color: #B38F57;
+  background-color: var(--color-accent-dark);
 }
 .hero .top .hero-buttons .btn-secondary {
-  background-color: #0B1D39;
+  background-color: var(--color-hero-cta);
 }
 .hero .top .hero-buttons .btn-secondary:hover {
   background-color: #0A162F;
@@ -322,12 +333,12 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 .about .bottom h2 span {
-  color: #C5A572;
+  color: var(--color-accent);
 }
 .about .bottom p {
   font-size: 1rem;
   line-height: 1.5;
-  color: #555555;
+  color: var(--color-muted);
 }
 
 @media (min-width: 768px) {
@@ -421,6 +432,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
+  color: #0B1D39;
 }
 .contact .card h2 span {
   color: #C5A572;
@@ -469,13 +481,13 @@ footer {
 /* practice Section */
 .practice {
   padding: 3em 1.5em;
-  background-color: #ffffff;
+  background-color: var(--color-bg);
   text-align: center;
   overflow: hidden;
 }
 .practice h2 {
   font-family: var(--heading-font);
-  color: #0B1D39;
+  color: var(--color-text);
   font-size: 1.8rem;
   margin-bottom: 1.5em;
   text-transform: uppercase;
@@ -491,18 +503,18 @@ footer {
   will-change: transform; /* optimize animation */
 }
 .practice .practice-card {
-  background-color: #f9f9f9;
-  border: 2px solid #C5A572;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-accent);
   border-radius: 10px;
   padding: 1em 2em;
-  color: #0B1D39;
+  color: var(--color-text);
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .practice .practice-card:hover {
-  background-color: #C5A572;
+  background-color: var(--color-accent);
   color: #fff;
   transform: scale(1.05);
 }
@@ -517,4 +529,31 @@ footer {
     padding: 1.5em 3em;
     font-size: 1.1rem;
   }
+}
+
+/* Dark theme overrides */
+[data-theme=dark] {
+  --color-bg: #0B1222;
+  --color-text: #E6EAF3;
+  --color-muted: #B8C0D0;
+  --color-accent: #C5A572;
+  --color-accent-dark: #A98649;
+  --color-elev: #141B2F;
+  --color-border: #2A3552;
+  --color-surface: #1A2138;
+  --color-hero-cta: #141B2F;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--color-elev);
+  color: var(--color-text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */
