@@ -513,6 +513,13 @@ footer {
   flex-shrink: 0;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
+.practice .practice-card img {
+  width: 200px;
+  aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 0.5em;
+}
 .practice .practice-card:hover {
   background-color: var(--color-accent);
   color: #fff;

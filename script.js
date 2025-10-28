@@ -121,25 +121,38 @@ goTopBtn.addEventListener("click", () => {
   const toggleBtn = document.getElementById('themeToggle');
   if (!toggleBtn) return;
 
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   const savedTheme = localStorage.getItem('theme');
 
   const applyTheme = (theme) => {
     if (theme === 'dark') {
       root.setAttribute('data-theme', 'dark');
-      toggleBtn.textContent = '☀️';
+      toggleBtn.textContent = '☀️'; // Sun icon for switching back to light
       localStorage.setItem('theme', 'dark');
     } else {
       root.setAttribute('data-theme', 'light');
-      toggleBtn.textContent = '🌙';
+      toggleBtn.textContent = '🌙'; // Moon icon for switching to dark
       localStorage.setItem('theme', 'light');
     }
   };
 
-  applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+  // --- Initial theme setup ---
+  if (savedTheme) {
+    applyTheme(savedTheme); // Use saved theme if available
+  } else {
+    applyTheme(prefersDark.matches ? 'dark' : 'light'); // Otherwise, follow system preference
+  }
 
+  // --- Toggle button click handler ---
   toggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    applyTheme(isDark ? 'light' : 'dark');
+    const currentTheme = root.getAttribute('data-theme');
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  // --- Update automatically if user changes system theme ---
+  prefersDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) { // Only if user hasn’t overridden manually
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
   });
 })();
